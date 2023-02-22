@@ -1,13 +1,18 @@
 # Sushiro Calculator
 
+## Install
+```bash
+pnpm install
+```
+
 ## Dev
 
 ```bash
 pnpm dev
 ```
 
-## Production
+## Start
 
 ```bash
-pnpm start
+pnpm build
 ```

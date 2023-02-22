@@ -7,13 +7,6 @@ const config = {
 
 export const theme = extendTheme({
     config,
-    styles: {
-        global: {
-            body: {
-                bg: "element.background",
-            },
-        },
-    },
     components: {
         Container: defineStyleConfig({
             baseStyle: {

@@ -1,9 +1,11 @@
-import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid, useColorMode, Switch } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { Plate } from '@/layouts/shared/Plate'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const Home: NextPage = () => {
+  const { colorMode, toggleColorMode } = useColorMode()
+
   const [redSushiCount, setRedSushiCount] = useState('0')
   const [silverSushiCount, setSilverSushiCount] = useState('0')
   const [goldSushiCount, setGoldSushiCount] = useState('0')
@@ -16,10 +18,19 @@ const Home: NextPage = () => {
 
   let totalPrice = (redSushiPrice + silverSushiPrice + goldSushiPrice + blackSushiPrice) * 1.177
   const formattedTotalPrice = isNaN(totalPrice) ? 0 : totalPrice.toFixed(2);
-  
+
   return (
     <Container p={10} size="2xl">
       <Heading textAlign="center">Sushiro Calculator</Heading>
+      <Switch
+        size="lg"
+        colorScheme="blue"
+        isChecked={colorMode === "dark"}
+        onChange={toggleColorMode}
+        my={4}
+      >
+        {colorMode === "dark" ? "Dark" : "Light"}
+      </Switch>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} p={10}>
         <Plate
           primaryColor="red.500"
